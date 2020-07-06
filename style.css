@@ -1,0 +1,16 @@
+body {
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+p {
+    background-color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 25px;
+    margin: 10px;
+    height: 75px;
+    width: 200px;
+}
