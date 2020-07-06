@@ -4,22 +4,17 @@ const questionContainerElement = document.getElementById("question-container")
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
-let shuffleQuestions, currentQuestionIndex
+let shuffledQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', () => {
-    currentQuestionIndex++
-    startQuiz()
-})
-
+startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
 })
 
 function startQuiz() {
-    console.log("Started")
     startButton.classList.add('hide')
-    shuffleQuestions = questions.sort(() => Math.random() - .5)
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
@@ -27,7 +22,7 @@ function startQuiz() {
 
 function setNextQuestion() {
     resetState()
-    showQuestion(shuffleQuestions[currentQuestionIndex])
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
@@ -45,20 +40,21 @@ function showQuestion(question) {
 }
 
 function resetState() {
+    clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild(answerButtonsElement.removeChild(answerButtonsElement.firstChild))
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
 }
 
-function selectAnswer() {
+function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    if (shuffleQuestions.length > currentQuestionIndex + 1) {
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     } else {
         startButton.innerText = "Restart"
@@ -81,12 +77,23 @@ function clearStatusClass(element) {
 }
 
 const questions = [{
-    question: 'What is 2+2?',
-    answers: [
-        { text: '4', correct: true },
-        { text: '22', correct: false }
-    ]
-}]
+        question: 'What is 2+2?',
+        answers: [
+            { text: '4', correct: true },
+            { text: '22', correct: false }
+        ]
+    },
+    {
+        question: 'Who is the best ',
+        answers: [
+            { text: 'Jordan', correct: true },
+            { text: 'Joe', correct: true },
+            { text: 'Ivy', correct: true },
+            { text: 'Romeo & Nea', correct: true }
+        ]
+    }
+]
+
 
 
 // Countdown timer here
@@ -105,6 +112,6 @@ function updateCountdown() {
 
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    countdownEl.innerHTML = '${minutes}:${seconds}';
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
     time--;
 }
