@@ -7,9 +7,13 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startQuiz)
+nextButton.classList.add('hide')
+
+
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
+
 })
 
 function startQuiz() {
@@ -18,6 +22,8 @@ function startQuiz() {
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
+    nextButton.classList.add('hide')
+
 }
 
 function setNextQuestion() {
@@ -118,7 +124,7 @@ function updateCountdown() {
     // clear the time when time's up 
     if (time < 0) {
         clearInterval(updateCountdown);
-        document.getElementById("countdown").innerHTML = "Time's Up.";
+        document.getElementById("countdown").innerHTML = "Time's up.";
     }
     1000;
 }

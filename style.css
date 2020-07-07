@@ -21,7 +21,7 @@
     }
     
     body.wrong {
-        background-color: red;
+        background-color: darkred;
     }
     
     p {
@@ -36,7 +36,7 @@
     }
     
     .container {
-        width: 1000px;
+        width: 700px;
         max-width: 80%;
         background-color: white;
         border-radius: 5px;
@@ -65,13 +65,21 @@
     
     .btn.correct {
         background-color: green;
+        color: white;
     }
     
     .btn.wrong {
-        background-color: red;
+        background-color: darkred;
+        color: white;
     }
     
-    .start-btn,
+    .start-btn {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 50px, 0px;
+        next-btn: hide;
+    }
+    
     .next-btn {
         font-size: 20px;
         font-weight: bold;
