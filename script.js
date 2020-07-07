@@ -3,6 +3,7 @@ const nextButton = document.getElementById("next-btn")
 const questionContainerElement = document.getElementById("question-container")
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+const scoreElement = document.getElementById('score')
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -22,7 +23,6 @@ function startQuiz() {
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
-    nextButton.classList.add('hide')
 
 }
 
@@ -61,10 +61,15 @@ function selectAnswer(e) {
         setStatusClass(button, button.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide')
+        nextButton.classList.remove('hide');
     } else {
         startButton.innerText = "Restart"
         startButton.classList.remove('hide')
+    }
+    if (correct) {
+        addPoints(1);
+    } else {
+        addPoints(-1);
     }
 }
 
@@ -85,12 +90,12 @@ function clearStatusClass(element) {
 const questions = [{
         question: 'What is 2+2?',
         answers: [
-            { text: '4', correct: true },
+            { text: '4', correct: true, },
             { text: '22', correct: false }
         ]
     },
     {
-        question: 'Who is the best ',
+        question: 'Who is the best?',
         answers: [
             { text: 'Jordan', correct: true },
             { text: 'Joe', correct: true },
@@ -127,4 +132,12 @@ function updateCountdown() {
         document.getElementById("countdown").innerHTML = "Time's up.";
     }
     1000;
+}
+
+// Scorekeeper
+let score = 0;
+
+function addPoints(pointsValue) {
+    score = score + pointsValue;
+    score.innerHtml = "Score: " + score;
 }
