@@ -89,7 +89,7 @@ const questions = [{
             { text: 'Jordan', correct: true },
             { text: 'Joe', correct: true },
             { text: 'Ivy', correct: true },
-            { text: 'Romeo & Nea', correct: true }
+            { text: 'Josh', correct: true }
         ]
     }
 ]
@@ -114,4 +114,11 @@ function updateCountdown() {
 
     countdownEl.innerHTML = `${minutes}:${seconds}`;
     time--;
+
+    // clear the time when time's up 
+    if (time < 0) {
+        clearInterval(updateCountdown);
+        document.getElementById("countdown").innerHTML = "Time's Up.";
+    }
+    1000;
 }
