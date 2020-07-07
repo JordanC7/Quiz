@@ -69,7 +69,7 @@ function selectAnswer(e) {
     if (correct) {
         addPoints(1);
     } else {
-        addPoints(-1);
+        addPoints("");
     }
 }
 
@@ -87,6 +87,7 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+// Adding our questions here 
 const questions = [{
         question: 'What is 2+2?',
         answers: [
@@ -139,5 +140,6 @@ let score = 0;
 
 function addPoints(pointsValue) {
     score = score + pointsValue;
-    score.innerHtml = "Score: " + score;
+    scoreElement.innerText = "Score: " + score;
+    console.log("score: " + score);
 }
