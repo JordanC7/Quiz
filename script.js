@@ -23,6 +23,7 @@ function startQuiz() {
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
+    resetScore();
 
 }
 
@@ -142,4 +143,9 @@ function addPoints(pointsValue) {
     score = score + pointsValue;
     scoreElement.innerText = "Score: " + score;
     console.log("score: " + score);
+}
+
+function resetScore() {
+    score = 0;
+    scoreElement.innerText = "Score: " + score;
 }
