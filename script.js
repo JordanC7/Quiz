@@ -24,7 +24,6 @@ function startQuiz() {
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
     resetScore();
-
 }
 
 function setNextQuestion() {
@@ -66,6 +65,7 @@ function selectAnswer(e) {
     } else {
         startButton.innerText = "Restart"
         startButton.classList.remove('hide')
+        displayScore();
     }
     if (correct) {
         addPoints(1);
@@ -185,4 +185,8 @@ function addPoints(pointsValue) {
 function resetScore() {
     score = 0;
     scoreElement.innerText = "Score: " + score;
+}
+
+function displayScore() {
+    scoreElement.innerText = ("You scored: " + score + " out of " + questions.length);
 }
