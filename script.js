@@ -71,6 +71,7 @@ function selectAnswer(e) {
         addPoints(1);
     } else {
         addPoints("");
+        decreaseTime();
     }
 }
 
@@ -165,6 +166,14 @@ function updateCountdown() {
     }
     1000;
 }
+
+function decreaseTime() {
+    time = time - 15;
+}
+
+
+
+
 
 // Scorekeeper
 let score = 0;
