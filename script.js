@@ -167,7 +167,7 @@ function updateCountdown() {
 }
 
 function decreaseTime() {
-    time = time - 15;
+    time = time - 45;
 }
 
 
