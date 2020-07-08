@@ -70,7 +70,6 @@ function selectAnswer(e) {
     if (correct) {
         addPoints(1);
     } else {
-        addPoints("");
         decreaseTime();
     }
 }
@@ -181,7 +180,6 @@ let score = 0;
 function addPoints(pointsValue) {
     score = score + pointsValue;
     scoreElement.innerText = "Score: " + score;
-    console.log("score: " + score);
 }
 
 function resetScore() {
