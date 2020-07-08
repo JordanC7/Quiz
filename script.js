@@ -90,21 +90,51 @@ function clearStatusClass(element) {
 
 // Adding our questions here 
 const questions = [{
-        question: 'What is 2+2?',
+        question: 'What is JavaScript?',
         answers: [
-            { text: '4', correct: true, },
-            { text: '22', correct: false }
+            { text: 'The same thing as Java.', correct: false },
+            { text: 'A programming language that allows you to make web pages interactive.', correct: true, },
+            { text: 'A type of coffee with a pen dipped into it.', correct: false },
+            { text: 'Hyper Text Markup Language.', correct: false }
+
         ]
     },
     {
-        question: 'Who is the best?',
+        question: 'Who invented JavaScript?',
         answers: [
-            { text: 'Jordan', correct: true },
-            { text: 'Joe', correct: true },
-            { text: 'Ivy', correct: true },
-            { text: 'Josh', correct: true }
+            { text: 'Harley Quinn', correct: false },
+            { text: 'Maxwell Nelson', correct: false },
+            { text: 'Tim Berners-Lee', correct: false },
+            { text: 'Brendan Eich', correct: true }
         ]
-    }
+    },
+    {
+        question: 'What is one kind of DATA TYPE a variable can hold?',
+        answers: [
+            { text: 'Drink', correct: false },
+            { text: 'Calendar', correct: false },
+            { text: 'Excel spreadsheet', correct: false },
+            { text: 'Array', correct: true }
+        ]
+    },
+    {
+        question: 'How can you make a comment in JavaScript?',
+        answers: [
+            { text: '<!--This is my comment--!>', correct: false },
+            { text: '(This is my comment)', correct: false },
+            { text: 'THIS IS MY COMMENT', correct: false },
+            { text: '// This is my comment', correct: true }
+        ]
+    },
+    {
+        question: 'How can you include a pop-up window to warn the user of something?',
+        answers: [
+            { text: 'prompt("Danger!")', correct: false },
+            { text: 'alert("Danger!")', correct: true },
+            { text: 'confirm("Is this dangerous?")', correct: false },
+            { text: 'function()', correct: false }
+        ]
+    },
 ]
 
 
